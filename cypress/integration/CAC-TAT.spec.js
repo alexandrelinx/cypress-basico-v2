@@ -164,7 +164,7 @@ describe('Central de Atendimento ao Cliente TAT',function() {
          .selectFile('./cypress/fixtures/test.json',{action:'drag-drop'})
          .should(function($input){
             console.log($input)
-            expect($input[0].files[0].name).to.equal('teste.json') 
+            expect($input[0].files[0].name).to.equal('test.json') 
                  })
            
     })
