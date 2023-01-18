@@ -19,13 +19,18 @@ describe('Central de Atendimento ao Cliente TAT',function() {
   })
     it(' preenche os campos obrigatorios e enviar o formulario', function() {    //it.olny executa função de callback
         const longText = "alexadre malaquias oliveira da silva " //  criada a variavel longText  para inserir um texto longo //
+        cy.clock()
         cy.get('#firstName').type('aleaxndre')
         cy.get('#lastName').type('malaquias')
         cy.get('#email').type('alexandremos@gmail.com')
         cy.get('#open-text-area').type(longText, {delay:0}) // o argumento delay 0 insere instantanemente o testo longo //
         //cy.get('button[type="submit"]').click()
         cy.contains('button', 'Enviar').click()
-        cy.get('.success').should('be.visible') //Should  comando para validar campos //
+        
+        cy.get('.success').should('be.visible')
+        cy.tick(3000)
+        cy.get('.success').should('not.be.visible')
+        //Should  comando para validar campos //
     })
     it('Exibe mensagem de erro ao submeter o formulario com um emal comm formatação invalida',function() {
         cy.get('#firstName').type('aleaxndre')
@@ -55,7 +60,8 @@ describe('Central de Atendimento ao Cliente TAT',function() {
         cy.contains('button', 'Enviar').click()
      
         cy.get('.error').should('be.visible') 
-    })
+
+        })
     it('Preenche e limpa os campos nome,sobrenome,email e telefone',function(){
      
         cy.get('#firstName')
@@ -158,7 +164,7 @@ describe('Central de Atendimento ao Cliente TAT',function() {
          .selectFile('./cypress/fixtures/test.json',{action:'drag-drop'})
          .should(function($input){
             console.log($input)
-            expect($input[0].files[0].name).to.equal('test.json') 
+            expect($input[0].files[0].name).to.equal('teste.json') 
                  })
            
     })

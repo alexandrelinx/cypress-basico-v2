@@ -7,8 +7,9 @@
     "cy:open": "cypress open",
     "cy:open:mobile":"cypress open --config viewportWidth=410 viewportHeight=860",
     "test": "cypress run",
-    "test:open:mobile":"cypress run --config viewportWidth=410 viewportHeight=860" 
-  },
+    "test:open:mobile":"cypress run --config viewportWidth=410 viewportHeight=860",
+    "git_test": "cypress run --record --key b5313a12-b71a-4571-9075-d67a7f33f59c"
+    },
   "reposit,ory": {
     "type": "git",
     "url": "git+https://github.com/wlsf82/cypress-basico-v2.git"
